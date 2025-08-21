@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KOMEKAIN — Korean × Filipino</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="#top">KomeKain</a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#signatures">Signatures</a>
+      <a href="#rawbar">Raw</a>
+      <a href="#ricebowls">Bowls</a>
+      <a href="#grill">Grill</a>
+      <a href="#drinks">Drinks</a>
+      <a href="#hours">Hours</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-inner">
+        <h1>Korean × Filipino</h1>
+        <p>Comfort flavors, shared fire. Monotone looks, layered taste.</p>
+        <a class="cta" href="#signatures">Explore Menu</a>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="wrap">
+        <h2 class="muted">About</h2>
+        <p>
+          A one-page experience inspired by sectioned menus and clean typographic layouts.
+          Built with Django, designed in grayscale so the food stands out in your mind.
+        </p>
+      </div>
+    </section>
+
+    <!-- MENU SECTIONS -->
+    {% for sec in menu_sections %}
+    <section class="section" id="{{ sec.anchor }}">
+      <div class="wrap">
+        <h2 class="muted">{{ sec.title }}</h2>
+        <ul class="menu-grid">
+          {% for item in sec.items %}
+          <li class="card">
+            <h3>{{ item.name }}</h3>
+            <p>{{ item.desc }}</p>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </section>
+    {% endfor %}
+
+    <!-- HOURS -->
+    <section class="section" id="hours">
+      <div class="wrap">
+        <h2 class="muted">Hours</h2>
+        <div class="hours">
+          {% for day, time in hours %}
+          <div class="hours-row"><span>{{ day }}</span><span>{{ time }}</span></div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="wrap">
+        <h2 class="muted">Contact</h2>
+        <form class="contact-form" method="post" action="#">
+          {% csrf_token %}
+          <input type="text" name="name" placeholder="Name" required>
+          <input type="email" name="email" placeholder="Email" required>
+          <textarea name="message" placeholder="Message" rows="5" required></textarea>
+          <button type="submit">Send</button>
+        </form>
+        <p class="small muted">This demo form is not wired to email yet.</p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="wrap">
+        <p class="small">©{{ now|date:"Y" }} KPH Taste — Demo site</p>
+      </div>
+    </footer>
+  </main>
+
+  <a href="#top" class="backtotop" aria-label="Back to top">↑</a>
+
+  <script>
+    // smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const target = document.querySelector(a.getAttribute('href'));
+        if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth'}); }
+      });
+    });
+
+    // show/hide back-to-top
+    const btt = document.querySelector(".backtotop");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 600) btt.classList.add("show"); else btt.classList.remove("show");
+    });
+  </script>
+</body>
+</html>
