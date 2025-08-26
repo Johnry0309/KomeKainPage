@@ -68,3 +68,34 @@ body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sa
   opacity: 0; transform: translateY(12px); pointer-events: none; transition: all .2s ease;
 }
 .backtotop.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+
+.logo {
+  height: 40px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.hero-logo, .inline-logo {
+  height: 50px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  font-weight: 800;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-logo {
+  height: 60px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.hero-icon {
+  height: 100px;
+  margin-right: 12px;
+  vertical-align: middle;
+}
