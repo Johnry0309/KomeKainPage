@@ -6,45 +6,39 @@ def home(request):
             "anchor": "signatures",
             "title": "Signatures",
             "items": [
-                {"name": "Kimchi Sinigang", "desc": "Tamarind-kimchi broth, grilled pork belly, kangkong, siling haba."},
-                {"name": "Gochu Adobo", "desc": "Chicken adobo with gochujang glaze, garlic chips, soft egg."},
-                {"name": "Bibim-Pancit", "desc": "Stir-fried miki bihon with bibimbap veggies, sesame, calamansi."},
-                {"name": "Samgyup Sisig", "desc": "Crispy pork sisig with ssamjang, nori, and pickled onions."},
+                {
+                    "name": "Kimchi Sinigang",
+                    "desc": "Tamarind-kimchi broth, grilled pork belly, kangkong, siling haba.",
+                    "price": "₱320",
+                    "photo": "img/kimchi-sinigang.jpg",
+                    "link": "#",  # later link to order/details
+                },
+                {
+                    "name": "Gochu Adobo",
+                    "desc": "Chicken adobo with gochujang glaze, garlic chips, soft egg.",
+                    "price": "₱280",
+                    "photo": "img/gochu-adobo.jpg",
+                    "link": "#",
+                },
+                {
+                    "name": "Bibim-Pancit",
+                    "desc": "Stir-fried miki bihon with bibimbap veggies, sesame, calamansi.",
+                    "price": "₱250",
+                    "photo": "img/bibim-pancit.jpg",
+                    "link": "#",
+                },
+                {
+                    "name": "Samgyup Sisig",
+                    "desc": "Crispy pork sisig with ssamjang, nori, and pickled onions.",
+                    "price": "₱300",
+                    "photo": "img/samgyup-sisig.jpg",
+                    "link": "#",
+                },
             ],
         },
-        {
-            "anchor": "rawbar",
-            "title": "Raw Bar",
-            "items": [
-                {"name": "Tuna Kilawin Yukhoe", "desc": "Calamansi-soy cure, sesame, pear, egg yolk."},
-                {"name": "Salmon Kinilaw Gimbap Bites", "desc": "Nori rice squares, coconut-vinegar cured salmon, chili."},
-            ],
-        },
-        {
-            "anchor": "ricebowls",
-            "title": "Rice Bowls",
-            "items": [
-                {"name": "Longga Kimbap Bowl", "desc": "Garlic rice, seared longganisa, rolled egg, nori, achara."},
-                {"name": "Beef Tapsilog Bulgogi", "desc": "Sweet soy bulgogi, fried egg, atchara, scallion."},
-            ],
-        },
-        {
-            "anchor": "grill",
-            "title": "Robata & Grill",
-            "items": [
-                {"name": "Inasal Dak Galbi", "desc": "Lemongrass chicken, chili paste, coconut glaze."},
-                {"name": "Liempo Galbi", "desc": "Charred pork belly, kalbi marinade, sesame-calamansi dip."},
-            ],
-        },
-        {
-            "anchor": "drinks",
-            "title": "Drinks",
-            "items": [
-                {"name": "Calamansi-Yuja Ade", "desc": "Sparkling yuja with calamansi"},
-                {"name": "Barako-Milk Iced Latte", "desc": "Batangas barako + Korean milk foam"},
-            ],
-        },
+        # repeat for rawbar, ricebowls, grill, drinks...
     ]
+
     hours = [
         ("Sunday", "11:00 AM – 10:00 PM"),
         ("Monday", "12:00 NN – 10:00 PM"),
@@ -54,4 +48,9 @@ def home(request):
         ("Friday", "11:00 AM – 11:00 PM"),
         ("Saturday", "11:00 AM – 11:00 PM"),
     ]
-    return render(request, "index.html", {"menu_sections": menu_sections, "hours": hours})
+
+    return render(
+        request,
+        "index.html",
+        {"menu_sections": menu_sections, "hours": hours}
+    )

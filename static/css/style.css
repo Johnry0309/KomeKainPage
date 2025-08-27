@@ -99,3 +99,83 @@ body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sa
   margin-right: 12px;
   vertical-align: middle;
 }
+
+/* menu list starts here*/
+
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.menu-item {
+  list-style: none;
+}
+
+.menu-card {
+  display: flex;
+  align-items: stretch;
+  text-decoration: none; /* remove underline */
+  color: inherit;        /* keep text natural */
+  gap: 1rem;
+}
+
+.menu-photo-box {
+  flex: 0 0 160px; /* fixed width */
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.menu-photo {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+
+.menu-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.menu-info h3 {
+  margin: 0 0 0.25rem 0;
+}
+
+.menu-info p {
+  margin: 0 0 0.5rem 0;
+  color: #555;
+}
+
+.menu-price {
+  font-weight: 600;
+  color: #000;
+}
+
+/* Hover effect */
+.menu-card:hover .menu-photo-box {
+  transform: scale(1.03);
+  transition: transform 0.2s ease;
+}
+
+/* Responsive: stack vertically */
+@media (max-width: 700px) {
+  .menu-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  .menu-photo-box {
+    flex: none;
+    width: 100%;
+  }
+  .menu-photo {
+    height: 200px;
+  }
+}
+
+
+/* menu list ends here*/
