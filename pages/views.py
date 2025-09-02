@@ -16,7 +16,7 @@ def home(request):
                     "name": "Classic Spam Musubi",
                     "desc": "Rice topped with egg, signature sauce, spam wrapped in dried seaweed and sesame seeds. ",
                     "price": "₱50",
-                    "photo": "img/Classic.jpeg",
+                    "photo": "img/Classic1.jpg",
                     "link": "#",
                 },
                 {
