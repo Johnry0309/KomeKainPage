@@ -13,10 +13,10 @@ def home(request):
             "title": "Signatures",
             "items": [
                 {
-                    "name": "Kimchi Sinigang",
-                    "desc": "Tamarind-kimchi broth, grilled pork belly, kangkong, siling haba.",
-                    "price": "₱320",
-                    "photo": "img/kimchi-sinigang.jpg",
+                    "name": "Classic Spam Musubi",
+                    "desc": "Rice topped with egg, signature sauce, spam wrapped in dried seaweed and sesame seeds. ",
+                    "price": "₱50",
+                    "photo": "img/Classic.jpeg",
                     "link": "#",
                 },
                 {
