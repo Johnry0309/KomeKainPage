@@ -9,40 +9,46 @@ def home(request):
     # -------------------------
     menu_sections = [
         {
-            "anchor": "signatures",
-            "title": "Signatures",
+            "anchor": "Musubi",
+            "title": "Musubi",
             "items": [
                 {
                     "name": "Classic Spam Musubi",
-                    "desc": "Rice topped with egg, signature sauce, spam wrapped in dried seaweed and sesame seeds. ",
+                    "desc": "A Hawaiian favorite — seasoned rice layered with fluffy egg, drizzled with our signature sauce, topped with savory Spam, and wrapped in crisp nori with a sprinkle of sesame seeds.",
                     "price": "₱50",
-                    "photo": "img/Classic1.jpg",
+                    "photo": "img/Classic_Musubi.png",
                     "link": "#",
                 },
                 {
-                    "name": "Gochu Adobo",
-                    "desc": "Chicken adobo with gochujang glaze, garlic chips, soft egg.",
-                    "price": "₱280",
-                    "photo": "img/gochu-adobo.jpg",
-                    "link": "#",
-                },
-                {
-                    "name": "Bibim-Pancit",
-                    "desc": "Stir-fried miki bihon with bibimbap veggies, sesame, calamansi.",
-                    "price": "₱250",
-                    "photo": "img/bibim-pancit.jpg",
-                    "link": "#",
-                },
-                {
-                    "name": "Samgyup Sisig",
-                    "desc": "Crispy pork sisig with ssamjang, nori, and pickled onions.",
-                    "price": "₱300",
-                    "photo": "img/samgyup-sisig.jpg",
+                    "name": "Golden Musubi",
+                    "desc": "A crispy twist on the classic — golden pan-seared Spam on rice with egg, sesame seeds, and our rich house sauce, all wrapped in roasted seaweed.",
+                    "price": "₱50",
+                    "photo": "img/Golden_Musubi.png",
                     "link": "#",
                 },
             ],
         },
-        # Add more sections...
+
+        {
+            "anchor": "Onigiri",
+            "title": "Onigiri",
+            "items": [
+                {
+                    "name": "Pastil Onigiri",
+                    "desc": "A Filipino-inspired onigiri filled with savory shredded chicken pastil, wrapped in nori, and paired with seasoned rice for a hearty bite.",
+                    "price": "₱25",
+                    "photo": "img/komekain-logo.png",
+                    "link": "#",
+                },
+                {
+                    "name": "Tuna Onigiri",
+                    "desc": "Classic Japanese rice ball stuffed with a creamy tuna filling, wrapped in nori for the perfect light snack.",
+                    "price": "₱25",
+                    "photo": "img/komekain-logo.png",
+                    "link": "#",
+                },
+            ],
+        },
     ]
 
     # -------------------------
