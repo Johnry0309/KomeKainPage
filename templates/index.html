@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
   <!-- ✅ Bootstrap CSS -->
-   <!-- ✅ remove this if you want to add -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -20,9 +19,9 @@
       <a href="#about">About</a>
       <a href="#Musubi">Musubi</a>
       <a href="#Onigiri">Onigiri</a>
-<!-- ✅ remove this if you want to add --> <a href="#ricebowls">Bowls</a>
-<!-- ✅ remove this if you want to add --><a href="#grill">Grill</a>
-<!-- ✅ remove this if you want to add --><a href="#drinks">Drinks</a>
+      <a href="#ricebowls">Bowls</a>
+      <a href="#grill">Grill</a>
+      <a href="#drinks">Drinks</a>
       <a href="#hours">Hours</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -30,52 +29,62 @@
 
   <main id="top">
     <!-- HERO -->
-    <section class="hero">
-      <div class="hero-inner">
-        <!-- ✅ Bootstrap Carousel -->
-        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-          
-          <!-- Indicators -->
-          <div class="carousel-indicators">
-            {% for image in carousel_images %}
-              <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="{{ forloop.counter0 }}" 
-                class="{% if forloop.first %}active{% endif %}" 
-                {% if forloop.first %}aria-current="true"{% endif %}
-                aria-label="Slide {{ forloop.counter }}"></button>
-            {% endfor %}
-          </div>
+      <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <!-- ✅ Bootstrap Carousel with fixed height & no zoom -->
+      <div id="carouselExample" 
+     class="carousel slide carousel-fade" 
+     data-bs-ride="carousel" 
+     data-bs-interval="4000" 
+     data-bs-wrap="true" 
+     data-bs-pause="false">
 
-          <!-- Slides -->
-          <div class="carousel-inner">
-            {% for image in carousel_images %}
-              <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                <img src="{% static image %}" class="d-block w-100" alt="Slide {{ forloop.counter }}">
-              </div>
-            {% endfor %}
-          </div>
-
-          <!-- Controls -->
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
+        
+        <!-- Indicators -->
+        <div class="carousel-indicators">
+          {% for image in carousel_images %}
+            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="{{ forloop.counter0 }}" 
+              class="{% if forloop.first %}active{% endif %}" 
+              {% if forloop.first %}aria-current="true"{% endif %}
+              aria-label="Slide {{ forloop.counter }}"></button>
+          {% endfor %}
         </div>
 
-        <a class="cta" href="#signatures">Explore Menu</a>
+        <!-- Slides -->
+        <div class="carousel-inner ratio ratio-16x9">
+          {% for image in carousel_images %}
+            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+              <img src="{% static image %}" alt="Slide {{ forloop.counter }}">
+            </div>
+          {% endfor %}
+        </div>
+
+        <!-- Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
-    </section>
+
+      <a class="cta" href="#signatures">Explore Menu</a>
+    </div>
+  </section>
 
     <!-- ABOUT -->
     <section class="section" id="about">
-      <div class="wrap">
+      <div class="about-box">
         <h2 class="muted">About</h2>
+        <h3 class="tagline">Elevating the Art of Musubi</h3>
         <p>
-          A one-page experience inspired by sectioned menus and clean typographic layouts.
-          Built with Django, designed in grayscale so the food stands out in your mind.
+          At <strong>KomeKain</strong>, every bite is a story of family, heritage, and bold flavors. 
+          From our kitchen, we handcraft musubi and onigiri with care—like our Spam Musubi with golden omelette, Kewpie mayo, and teriyaki glaze, 
+          or our signature Pastil Onigiri, a Filipino–Japanese fusion that’s truly one of a kind. 
+          Made fresh daily with quality ingredients, each piece is prepared with the same warmth we’d serve to family.
         </p>
       </div>
     </section>
@@ -123,26 +132,25 @@
     <section class="section" id="contact">
       <div class="wrap">
         <h2 class="muted">Contact</h2>
-        <form class="contact-form" method="post" action="#">
-          {% csrf_token %}
-          <input type="text" name="name" placeholder="Name" required>
-          <input type="email" name="email" placeholder="Email" required>
-          <textarea name="message" placeholder="Message" rows="5" required></textarea>
-          <button type="submit">Send</button>
-        </form>
-        <p class="small muted">This demo form is not wired to email yet.</p>
+
+        <a href="https://m.me/61579246496644" target="_blank" rel="noopener noreferrer" class="messenger-btn">
+          💬 Contact Us on Messenger
+        </a>
+
+        <p class="small muted">We’ll reply to you directly in Messenger.</p>
       </div>
     </section>
-
-    <footer class="footer">
-      <div class="wrap">
-        <p class="small">©{{ now|date:"Y" }} KPH Taste — Demo site</p>
-      </div>
-    </footer>
   </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p class="small">©{{ now|date:"Y" }} KomeKain.co</p>
+    </div>
+  </footer>
 
   <a href="#top" class="backtotop" aria-label="Back to top">↑</a>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     // smooth scrolling
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
@@ -159,96 +167,146 @@
     });
   </script>
 
-  <!-- ✅ Bootstrap Bundle JS (needed for carousel to work) -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+  <style>
+  /* Carousel Wrapper */
+ .hero {
+  min-height: auto;       /* don't force 88vh here */
+  display: block;         /* stop centering carousel */
+  padding: 0;
+}
 
-<style>
-/* ===== Carousel Wrapper ===== */
 #carouselExample {
-  max-width: 1200px;   /* limit size on big screens */
-  margin: 0 auto;      /* center carousel */
-  border-radius: 20px; /* smooth rounded corners */
+  width: 100%;
+  max-width: 100%;
+  height: 500px;          /* fixed height */
   overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  position: relative;
+  background: #ffffff;       /* fills empty space (letterboxing) */
 }
 
-/* ===== Carousel Item ===== */
-#carouselExample .carousel-item {
-  height: 500px; /* fixed height for smooth transition */
+#carouselExample .carousel-inner {
+  height: 100%;
 }
 
-/* ===== Images ===== */
 #carouselExample .carousel-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover;   /* crop instead of stretching */
+  object-fit: contain;    /* ✅ show full image without cropping */
   object-position: center;
-  transition: transform 0.6s ease-in-out; /* smoother animation */
+  background-color: #ffffff; /* fills gaps if aspect ratio doesn’t match */
+  display: block;
 }
 
-/* ===== Indicators (dots) ===== */
-.carousel-indicators [data-bs-target] {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: #ffffff;
-  border: 2px solid #ff6f00; /* orange food theme */
-  margin: 0 5px;
-  opacity: 0.7;
-  transition: all 0.3s ease;
-}
-
-.carousel-indicators .active {
-  background-color: #ff6f00;
-  opacity: 1;
-  transform: scale(1.2);
-}
-
-/* ===== Captions ===== */
-#carouselExample .carousel-caption {
-  z-index: 2;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #fff;
-  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.6);
-}
-
-/* Optional gradient overlay for readability */
-#carouselExample .carousel-item::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.5));
-  z-index: 1;
-}
-
-#carouselExample .carousel-caption {
-  z-index: 2;
-}
-
-/* ===== Responsive Adjustments ===== */
-@media (max-width: 992px) {
-  #carouselExample .carousel-item {
-    height: 400px;
+  /* Fix fade flicker without shrinking */
+/* Fix Bootstrap fade flicker — true crossfade */
+/* Extra fix for fade looping jump */
+  .carousel-fade .carousel-inner .carousel-item-start.carousel-item-prev,
+  .carousel-fade .carousel-inner .carousel-item-end.carousel-item-next {
+    opacity: 0;
+    z-index: 1;
   }
-  #carouselExample .carousel-caption {
-    font-size: 1.2rem;
-  }
-}
 
-@media (max-width: 576px) {
-  #carouselExample .carousel-item {
-    height: 250px;
+  .carousel-fade .carousel-inner .active.carousel-item-start,
+  .carousel-fade .carousel-inner .active.carousel-item-end {
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
   }
-  #carouselExample .carousel-caption {
-    font-size: 1rem;
-  }
-}
 
-</style>
+  .carousel-fade .carousel-inner .carousel-item-next,
+  .carousel-fade .carousel-inner .carousel-item-prev,
+  .carousel-fade .carousel-inner .active {
+    transition: opacity 2s ease-in-out;
+  }
+  /* Controls */
+  #carouselExample .carousel-control-prev,
+  #carouselExample .carousel-control-next {
+    width: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    bottom: auto;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+  }
+  #carouselExample .carousel-control-prev:hover,
+  #carouselExample .carousel-control-next:hover {
+    opacity: 1;
+  }
+
+  /* Indicators */
+  #carouselExample .carousel-indicators [data-bs-target] {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 2px solid #ff6f00;
+    margin: 0 5px;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+  }
+  #carouselExample .carousel-indicators .active {
+    background-color: #ff6f00;
+    opacity: 1;
+    transform: scale(1.2);
+  }
+
+  /* Responsive */
+  @media (max-width: 992px) {
+    #carouselExample .carousel-inner { height: 400px; }
+  }
+  @media (max-width: 576px) {
+    #carouselExample .carousel-inner { height: 250px; }
+  }
+
+  /* Messenger button */
+  .messenger-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #0084ff;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  .messenger-btn:hover {
+    background-color: #006fd6;
+    transform: scale(1.05);
+  }
+
+  /* ABOUT */
+  #about {
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+  }
+  .about-box {
+    background: #fafafa;
+    padding: 50px 30px;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    max-width: 800px;
+    text-align: center;
+  }
+  .about-box h2 {
+    font-size: 2rem;
+    color: #666;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .about-box .tagline {
+    font-size: 1.5rem;
+    color: #ff6f00;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  .about-box p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+    margin: 0 auto;
+  }
+  </style>
+</body>
+</html>
