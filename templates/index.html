@@ -127,22 +127,11 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section class="section" id="contact">
+ </main>
+  <footer class="footer" id="contact">
+
       <div class="wrap">
         <h2 class="muted">Contact</h2>
-
-        <a href="https://m.me/61579246496644" target="_blank" rel="noopener noreferrer" class="messenger-btn">
-          💬 Contact Us on Messenger
-        </a>
-
-        <p class="small muted">We’ll reply to you directly in Messenger.</p>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer" id="contact">
-    <div class="wrap">
       <div class="social-icons">
         <a href="https://www.facebook.com/profile.php?id=61579246496644" target="_blank" aria-label="Facebook">
           <img src="{% static 'img/facebook-icon.svg' %}" alt="Facebook">
@@ -157,8 +146,15 @@
       <p class="small follow-text">
         Follow us on our socials for more cravings, chika, and surprises! 💕
       </p>
-      <p class="small">©{{ now|date:"Y" }} KomeKain.co</p>
     </div>
+          <div class="wrap">
+        <a href="https://m.me/61579246496644" target="_blank" rel="noopener noreferrer" class="messenger-btn">
+          💬 Contact Us on Messenger
+        </a>
+        <p class="small muted">We’ll reply to you directly in Messenger.</p>
+        <p class="small">©{{ now|date:"Y" }} KomeKain.co</p>
+      </div>
+      
   </footer>
 
 
@@ -249,7 +245,7 @@
   #carouselExample .carousel-indicators [data-bs-target] {
     width: 12px;
     height: 12px;
-    border-radius: 50%;
+    border-radius: 80%;
     background-color: #ffffff;
     border: 2px solid #ff6f00;
     margin: 0 5px;
