@@ -20,9 +20,10 @@
       <a href="#Musubi">Musubi</a>
       <a href="#Onigiri">Onigiri</a>
       <a href="#ricebowls">Bowls</a>
-      <a href="#grill">Grill</a>
+      
       <a href="#drinks">Drinks</a>
       <a href="#hours">Hours</a>
+      <a href="#grill">Bazaar</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -79,12 +80,10 @@
     <section class="section" id="about">
       <div class="about-box">
         <h3 class="muted">About</h3>
-        <h3 class="tagline">Elevating the Art of Musubi</h3>
         <p>
-          At <strong>KomeKain</strong>, every bite is a story of family, heritage, and bold flavors. 
-          From our kitchen, we handcraft musubi and onigiri with care—like our Spam Musubi with golden omelette, Kewpie mayo, and teriyaki glaze, 
-          or our signature Pastil Onigiri, a Filipino–Japanese fusion that’s truly one of a kind. 
-          Made fresh daily with quality ingredients, each piece is prepared with the same warmth we’d serve to family.
+          <strong>KomeKain & Co </strong>is a family-owned small business, where every bite is a story of family, 
+          passion and bold flavors. from our home kitchen, we handcraft our musubi and onigiri with care and love. 
+          we hope to slay and deliver every piece of musubi and onigiri to your cravings satisfaction. 
         </p>
       </div>
     </section>
@@ -142,11 +141,26 @@
     </section>
   </main>
 
-  <footer class="footer">
+  <footer class="footer" id="contact">
     <div class="wrap">
+      <div class="social-icons">
+        <a href="https://www.facebook.com/profile.php?id=61579246496644" target="_blank" aria-label="Facebook">
+          <img src="{% static 'img/facebook-icon.svg' %}" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com/kome_kain/" target="_blank" aria-label="Instagram">
+          <img src="{% static 'img/instagram-icon.svg' %}" alt="Instagram">
+        </a>
+        <a href="https://www.tiktok.com/@komekain" target="_blank" aria-label="TikTok">
+          <img src="{% static 'img/tiktok-icon-free-png.svg' %}" alt="TikTok">
+        </a>
+      </div>
+      <p class="small follow-text">
+        Follow us on our socials for more cravings, chika, and surprises! 💕
+      </p>
       <p class="small">©{{ now|date:"Y" }} KomeKain.co</p>
     </div>
   </footer>
+
 
   <a href="#top" class="backtotop" aria-label="Back to top">↑</a>
 

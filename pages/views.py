@@ -14,14 +14,14 @@ def home(request):
             "items": [
                 {
                     "name": "Classic Spam Musubi",
-                    "desc": "A Hawaiian favorite — seasoned rice layered with fluffy egg, drizzled with our signature sauce, topped with savory Spam, and wrapped in crisp nori with a sprinkle of sesame seeds.",
+                    "desc": "a true classic musubi, seasoned rice layered with our teriyaki sauce, fluffy eggs, kewpie mayo topped with the savory spam cooked to crisp with the teriyaki sauce wrapped in nori seaweed with a sprinkle of sesame seeds.",
                     "price": "₱50",
                     "photo": "img/Classic_Musubi.png",
                     "link": "#",
                 },
                 {
                     "name": "Golden Musubi",
-                    "desc": "A crispy twist on the classic — golden pan-seared Spam on rice with egg, sesame seeds, and our rich house sauce, all wrapped in roasted seaweed.",
+                    "desc": "a golden twist to our classic, our classic spam musubi topped with the creamy and cheesy golden sauce. .",
                     "price": "₱50",
                     "photo": "img/Golden_Musubi.png",
                     "link": "#",
@@ -35,14 +35,14 @@ def home(request):
             "items": [
                 {
                     "name": "Pastil Onigiri",
-                    "desc": "A Filipino-inspired onigiri filled with savory shredded chicken pastil, wrapped in nori, and paired with seasoned rice for a hearty bite.",
+                    "desc": "traditional Onigiri with the savory shredded chicken pastil, and creamy kewpie mayo wrapped in nori and topped with sesame seeds. ",
                     "price": "₱25",
                     "photo": "img/Pastil_onigiri.png",
                     "link": "#",
                 },
                 {
                     "name": "Tuna Onigiri",
-                    "desc": "Classic Japanese rice ball stuffed with a creamy tuna filling, wrapped in nori for the perfect light snack.",
+                    "desc": "the classic Onigiri filled with tuna and kewpie goodness, wrapped in nori seaweed and sesame seeds. ",
                     "price": "₱25",
                     "photo": "img/Tuna_onigiri.png",
                     "link": "#",
