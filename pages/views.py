@@ -22,7 +22,7 @@ def home(request):
                 {
                     "name": "Golden Musubi",
                     "desc": "a golden twist to our classic, our classic spam musubi topped with the creamy and cheesy golden sauce. .",
-                    "price": "₱50",
+                    "price": "₱60",
                     "photo": "img/Golden_Musubi.png",
                     "link": "#",
                 },
