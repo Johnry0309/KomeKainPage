@@ -5,318 +5,273 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>KOMEKAIN — Korean × Filipino</title>
+
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-  <!-- ✅ Bootstrap CSS -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body>
-  <header class="nav">
-    <a class="brand" href="#top"><img src="{% static 'img/komekain-logo.png' %}" alt="Logo" class="nav-logo"> KomeKain</a>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#Musubi">Musubi</a>
-      <a href="#Onigiri">Onigiri</a>
-      <a href="#ricebowls">Bowls</a>
-      
-      <a href="#drinks">Drinks</a>
-      <a href="#hours">Hours</a>
-      <a href="#grill">Bazaar</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
 
-  <main id="top">
-    <!-- HERO -->
-      <!-- HERO -->
-  <section class="hero">
-    <div class="hero-inner">
-      <!-- ✅ Bootstrap Carousel with fixed height & no zoom -->
-      <div id="carouselExample" 
-     class="carousel slide carousel-fade" 
-     data-bs-ride="carousel" 
-     data-bs-interval="4000" 
-     data-bs-wrap="true" 
-     data-bs-pause="false">
+<header class="nav">
+  <a class="brand" href="#top">
+    <img src="{% static 'img/komekain-logo.png' %}" alt="Logo" class="nav-logo">
+    KomeKain
+  </a>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#Musubi">Musubi</a>
+    <a href="#Onigiri">Onigiri</a>
+    <a href="#ricebowls">Bowls</a>
+    <a href="#drinks">Drinks</a>
+    <a href="#hours">Hours</a>
+    <a href="#grill">Bazaar</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-        
-        <!-- Indicators -->
-        <div class="carousel-indicators">
-          {% for image in carousel_images %}
-            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="{{ forloop.counter0 }}" 
-              class="{% if forloop.first %}active{% endif %}" 
-              {% if forloop.first %}aria-current="true"{% endif %}
-              aria-label="Slide {{ forloop.counter }}"></button>
-          {% endfor %}
-        </div>
+<main id="top">
 
-        <!-- Slides -->
-        <div class="carousel-inner">
-          {% for image in carousel_images %}
-            <div class="carousel-item {% if forloop.first %}active{% endif %}">
-              <img src="{% static image %}" alt="Slide {{ forloop.counter }}">
-            </div>
-          {% endfor %}
-        </div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
 
-        <!-- Controls -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
+    <div id="carouselExample" class="carousel slide carousel-fade"
+         data-bs-ride="carousel" data-bs-interval="4000"
+         data-bs-wrap="true" data-bs-pause="false">
+
+      <div class="carousel-indicators">
+        {% for image in carousel_images %}
+        <button type="button"
+                data-bs-target="#carouselExample"
+                data-bs-slide-to="{{ forloop.counter0 }}"
+                class="{% if forloop.first %}active{% endif %}"
+                {% if forloop.first %}aria-current="true"{% endif %}
+                aria-label="Slide {{ forloop.counter }}">
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
+        {% endfor %}
       </div>
 
-      <a class="cta" href="#Musubi">Explore Menu</a>
-    </div>
-  </section>
-
-    <!-- ABOUT -->
-    <section class="section" id="about">
-      <div class="about-box">
-        <h3 class="muted">About</h3>
-        <p>
-          <strong>KomeKain & Co </strong>is a family-owned small business, where every bite is a story of family, 
-          passion and bold flavors. from our home kitchen, we handcraft our musubi and onigiri with care and love. 
-          we hope to slay and deliver every piece of musubi and onigiri to your cravings satisfaction. 
-        </p>
-      </div>
-    </section>
-
-    <!-- MENU SECTIONS -->
-    {% for sec in menu_sections %}
-    <section class="section" id="{{ sec.anchor }}">
-      <div class="wrap">
-        <h1 class="muted">{{ sec.title }}</h1>
-        <ul class="menu-list">
-          {% for item in sec.items %}
-          <li class="menu-item">
-            <a href="{{ item.link }}" class="menu-card">
-              <!-- Left: Photo box -->
-              <div class="menu-photo-box">
-                <img src="{% static item.photo %}" alt="{{ item.name }}" class="menu-photo" />
-              </div>
-              <!-- Right: Info (name + desc + price) -->
-              <div class="menu-info">
-                <h3>{{ item.name }}</h3>
-                <p>{{ item.desc }}</p>
-                <span class="menu-price">{{ item.price }}</span>
-              </div>
-            </a>
-          </li>
-          {% endfor %}
-        </ul>
-      </div>
-    </section>
-    {% endfor %}
-
-    <!-- HOURS -->
-    <section class="section" id="hours">
-      <div class="wrap">
-        <h2 class="muted">Hours</h2>
-        <div class="hours">
-          {% for day, time in hours %}
-          <div class="hours-row"><span>{{ day }}</span><span>{{ time }}</span></div>
-          {% endfor %}
+      <div class="carousel-inner">
+        {% for image in carousel_images %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+          <img src="{% static image %}" alt="Slide {{ forloop.counter }}">
         </div>
+        {% endfor %}
       </div>
-    </section>
 
- </main>
-  <footer class="footer" id="contact">
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
 
-      <div class="wrap">
-        <h2 class="muted">Contact</h2>
-      <div class="social-icons">
-        <a href="https://www.facebook.com/profile.php?id=61579246496644" target="_blank" aria-label="Facebook">
-          <img src="{% static 'img/facebook-icon.svg' %}" alt="Facebook">
-        </a>
-        <a href="https://www.instagram.com/kome_kain/" target="_blank" aria-label="Instagram">
-          <img src="{% static 'img/instagram-icon.svg' %}" alt="Instagram">
-        </a>
-        <a href="https://www.tiktok.com/@komekain" target="_blank" aria-label="TikTok">
-          <img src="{% static 'img/tiktok-icon-free-png.svg' %}" alt="TikTok">
-        </a>
-      </div>
-      <p class="small follow-text">
-        Follow us on our socials for more cravings, chika, and surprises! 💕
-      </p>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+
     </div>
-          <div class="wrap">
-        <a href="https://m.me/61579246496644" target="_blank" rel="noopener noreferrer" class="messenger-btn">
-          💬 Contact Us on Messenger
+
+    <a class="cta" href="#Musubi">Explore Menu</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="about-box">
+    <h3 class="muted">About</h3>
+    <p>
+      <strong>KomeKain & Co</strong> is a family-owned small business,
+      where every bite is a story of family, passion, and bold flavors.
+      From our home kitchen, we handcraft our musubi and onigiri with care and love.
+    </p>
+  </div>
+</section>
+
+<!-- MENU SECTIONS -->
+{% for sec in menu_sections %}
+<section class="section" id="{{ sec.anchor }}">
+  <div class="wrap">
+    <h1 class="muted">{{ sec.title }}</h1>
+    <ul class="menu-list">
+
+      {% for item in sec.items %}
+      <li class="menu-item">
+        <a href="{{ item.link }}" class="menu-card">
+          <div class="menu-photo-box">
+            <img src="{% static item.photo %}" alt="{{ item.name }}" class="menu-photo">
+          </div>
+          <div class="menu-info">
+            <h3>{{ item.name }}</h3>
+            <p>{{ item.desc }}</p>
+            <span class="menu-price">{{ item.price }}</span>
+          </div>
         </a>
-        <p class="small muted">We’ll reply to you directly in Messenger.</p>
-        <p class="small">©{{ now|date:"Y" }} KomeKain.co</p>
+      </li>
+      {% endfor %}
+
+    </ul>
+  </div>
+</section>
+{% endfor %}
+
+<!-- HOURS -->
+<section class="section" id="hours">
+  <div class="wrap">
+    <h2 class="muted">Hours</h2>
+    <div class="hours">
+      {% for day, time in hours %}
+      <div class="hours-row"><span>{{ day }}</span><span>{{ time }}</span></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ⭐⭐⭐ BAZAAR — Video Playlist ⭐⭐⭐ -->
+<section class="section" id="grill">
+  <div class="wrap">
+    <h1 class="muted">Bazaar</h1>
+
+    <div class="video-player-box">
+      <video id="bazaarPlayer" class="video-player" preload="auto" playsinline></video>
+
+      <div class="video-controls">
+        <button id="prevVid" class="btn btn-outline-dark">Previous</button>
+        <button id="nextVid" class="btn btn-outline-dark">Next</button>
       </div>
-      
-  </footer>
+    </div>
+  </div>
+</section>
 
+</main>
 
-  <a href="#top" class="backtotop" aria-label="Back to top">↑</a>
+<!-- FOOTER -->
+<footer class="footer" id="contact">
+  <div class="wrap">
+    <h2 class="muted">Contact</h2>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    // smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', e=>{
-        const target = document.querySelector(a.getAttribute('href'));
-        if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth'}); }
-      });
-    });
+    <div class="social-icons">
+      <a href="https://www.facebook.com/profile.php?id=61579246496644" target="_blank"><img src="{% static 'img/facebook-icon.svg' %}" alt=""></a>
+      <a href="https://www.instagram.com/kome_kain/" target="_blank"><img src="{% static 'img/instagram-icon.svg' %}" alt=""></a>
+      <a href="https://www.tiktok.com/@komekain" target="_blank"><img src="{% static 'img/tiktok-icon-free-png.svg' %}" alt=""></a>
+    </div>
 
-    // show/hide back-to-top
-    const btt = document.querySelector(".backtotop");
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 600) btt.classList.add("show"); else btt.classList.remove("show");
-    });
-  </script>
+    <p class="small follow-text">Follow us for cravings, chika, and surprises! 💕</p>
+  </div>
 
-  <style>
-  /* Carousel Wrapper */
- .hero {
-  min-height: auto;       /* don't force 88vh here */
-  display: block;         /* stop centering carousel */
-  padding: 0;
+  <div class="wrap">
+    <a href="https://m.me/61579246496644" target="_blank" class="messenger-btn">💬 Contact Us on Messenger</a>
+    <p class="small muted">We'll reply directly in Messenger.</p>
+    <p class="small">©{{ now|date:"Y" }} KomeKain.co</p>
+  </div>
+</footer>
+
+<a href="#top" class="backtotop" aria-label="Back to top">↑</a>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+// Smooth Scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click', e=>{
+    const target=document.querySelector(a.getAttribute('href'));
+    if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth'}); }
+  });
+});
+
+// Back to top visibility
+const btt=document.querySelector(".backtotop");
+window.addEventListener("scroll",()=>{
+  if(window.scrollY>600) btt.classList.add("show"); else btt.classList.remove("show");
+});
+
+/* ⭐ Bazaar Playlist ⭐ */
+const bazaarPlaylist=[
+  "{% static 'videos/bazaar0.mp4' %}",
+  "{% static 'videos/bazaar1.mp4' %}",
+  "{% static 'videos/bazaar2.mp4' %}",
+  "{% static 'videos/bazaar3.mp4' %}"
+];
+
+let vidIndex=0;
+const player=document.getElementById("bazaarPlayer");
+
+function loadBazaarVideo(i){
+  const src=bazaarPlaylist[i];
+  if(player.getAttribute("src")!==src){
+    player.src=src;
+  }
+  player.play().catch(()=>{});
 }
 
-#carouselExample {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  background: #f3d3b5;       /* fills empty space (letterboxing) */
-}
+document.getElementById("nextVid").onclick=()=>{
+  vidIndex=(vidIndex+1)%bazaarPlaylist.length;
+  loadBazaarVideo(vidIndex);
+};
 
-#carouselExample .carousel-inner {
-  max-height: 1000px;
-}
+document.getElementById("prevVid").onclick=()=>{
+  vidIndex=(vidIndex-1+bazaarPlaylist.length)%bazaarPlaylist.length;
+  loadBazaarVideo(vidIndex);
+};
 
+player.onended=()=>{
+  vidIndex=(vidIndex+1)%bazaarPlaylist.length;
+  loadBazaarVideo(vidIndex);
+};
+
+// first load
+loadBazaarVideo(vidIndex);
+
+/* ⭐ Autoplay on scroll ⭐ */
+const bazaarSection=document.querySelector("#grill");
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting) player.play();
+    else player.pause();
+  });
+},{threshold:0.6});
+observer.observe(bazaarSection);
+</script>
+
+<style>
+/* CAROUSEL */
+.hero { padding:0; }
+
+#carouselExample { width:100%; background:#f3d3b5; }
 #carouselExample .carousel-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;    /* ✅ show full image without cropping */
-  object-position: center;
-  background-color: #f3d3b5
-; /* fills gaps if aspect ratio doesn’t match */
-  display: block;
+  width:100%; height:100%; object-fit:cover;
+  background:#f3d3b5;
 }
 
-  /* Fix fade flicker without shrinking */
-/* Fix Bootstrap fade flicker — true crossfade */
-/* Extra fix for fade looping jump */
-  .carousel-fade .carousel-inner .carousel-item-start.carousel-item-prev,
-  .carousel-fade .carousel-inner .carousel-item-end.carousel-item-next {
-    opacity: 0;
-    z-index: 1;
-  }
+/* ABOUT */
+.about-box {
+  background:#fafafa; padding:50px 30px;
+  border-radius:16px; text-align:center;
+  max-width:800px; margin:auto;
+}
 
-  .carousel-fade .carousel-inner .active.carousel-item-start,
-  .carousel-fade .carousel-inner .active.carousel-item-end {
-    opacity: 0;
-    transition: opacity 2s ease-in-out;
-  }
+/* VIDEO PLAYER */
+.video-player-box {
+  padding:20px;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+}
 
-  .carousel-fade .carousel-inner .carousel-item-next,
-  .carousel-fade .carousel-inner .carousel-item-prev,
-  .carousel-fade .carousel-inner .active {
-    transition: opacity 2s ease-in-out;
-  }
-  /* Controls */
-  #carouselExample .carousel-control-prev,
-  #carouselExample .carousel-control-next {
-    width: 5%;
-    top: 50%;
-    transform: translateY(-50%);
-    bottom: auto;
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
-  }
-  #carouselExample .carousel-control-prev:hover,
-  #carouselExample .carousel-control-next:hover {
-    opacity: 1;
-  }
+.video-player {
+  max-width:400px; width:100%;
+  background:#000; object-fit:contain;
+}
 
-  /* Indicators */
-  #carouselExample .carousel-indicators [data-bs-target] {
-    width: 12px;
-    height: 12px;
-    border-radius: 80%;
-    background-color: #ffffff;
-    border: 2px solid #ff6f00;
-    margin: 0 5px;
-    opacity: 0.7;
-    transition: all 0.3s ease;
-  }
-  #carouselExample .carousel-indicators .active {
-    background-color: #ff6f00;
-    opacity: 1;
-    transform: scale(1.2);
-  }
+.video-controls button { margin:8px; }
 
-  /* Responsive */
-  @media (max-width: 992px) {
-    #carouselExample .carousel-inner { height: 400px; }
-  }
-  @media (max-width: 576px) {
-    #carouselExample .carousel-inner { height: 250px; }
-  }
+/* Responsive */
+@media(max-width:576px){
+  .video-player { max-width:100%; }
+}
+</style>
 
-  /* Messenger button */
-  .messenger-btn {
-    display: inline-block;
-    padding: 12px 24px;
-    background-color: #0084ff;
-    color: white;
-    font-size: 16px;
-    font-weight: 600;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: background 0.3s ease, transform 0.2s ease;
-  }
-  .messenger-btn:hover {
-    background-color: #006fd6;
-    transform: scale(1.05);
-  }
-
-  /* ABOUT */
-  #about {
-    padding: 80px 20px;
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-  }
-  .about-box {
-    background: #fafafa;
-    padding: 50px 30px;
-    border-radius: 16px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-    max-width: 800px;
-    text-align: center;
-  }
-  .about-box h2 {
-    font-size: 2rem;
-    color: #666;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-  .about-box .tagline {
-    font-size: 1.5rem;
-    color: #ff6f00;
-    font-weight: 700;
-    margin-bottom: 20px;
-  }
-  .about-box p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #444;
-    margin: 0 auto;
-  }
-  </style>
 </body>
 </html>
