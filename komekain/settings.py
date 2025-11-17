@@ -5,8 +5,12 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = "change-me"
-DEBUG = True
-ALLOWED_HOSTS = ["komekain.onrender.com", "localhost", "127.0.0.1"]
+
+# ⚠️ Turn off DEBUG in production
+DEBUG = False
+
+# Add your Render domain here
+ALLOWED_HOSTS = ["komekainpage.onrender.com", "localhost", "127.0.0.1"]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -20,6 +24,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",  # ✅ add WhiteNoise for static files
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -48,13 +53,22 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "komekain.wsgi.application"
 
-DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": BASE_DIR / "db.sqlite3"}}
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+    }
+}
 
 LANGUAGE_CODE = "en-us"
 TIME_ZONE = "Asia/Manila"
 USE_I18N = True
 USE_TZ = True
 
-STATIC_URL = "static/"
-STATICFILES_DIRS = [BASE_DIR / "static"]
+# ✅ Static files configuration
+STATIC_URL = "/static/"
+STATICFILES_DIRS = [BASE_DIR / "static"]  # your local static folder
+STATIC_ROOT = BASE_DIR / "staticfiles"   # where collectstatic will gather files
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
