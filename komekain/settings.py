@@ -10,7 +10,8 @@ SECRET_KEY = "change-me"
 DEBUG = False
 
 # Add your Render domain here
-ALLOWED_HOSTS = ["komekain.onrender.com", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["komekain.onrender.com",  ".railway.app",
+"localhost", "127.0.0.1"]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
